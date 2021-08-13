@@ -21,10 +21,10 @@ At TheCodingMachine, we build a lot of web applications (intranets, extranets an
 Open a terminal and run the following command:
 
 ```bash
-$ docker run --rm -p 3000:3000 thecodingmachine/gotenberg:6
+$ docker run -d --rm -p 3005:3005 xxx87/gotenberg:6
 ```
 
-The API is now available on your host at `http://localhost:3000`.
+The API is now available on your host at `http://localhost:3005`.
 
 Head to the [documentation](https://gotenberg.dev/)
 to learn how to interact with it!

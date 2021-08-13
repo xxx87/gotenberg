@@ -32,7 +32,7 @@ For instance:
 
 ```bash
 $ curl --request POST \
-    --url http://localhost:3000/convert/markdown \
+    --url http://localhost:3005/convert/markdown \
     --header 'Content-Type: multipart/form-data' \
     --form files=@index.html \
     --form files=@file.md \
@@ -44,7 +44,7 @@ $ curl --request POST \
 ```golang
 import "github.com/thecodingmachine/gotenberg-go-client/v7"
 
-c := &gotenberg.Client{Hostname: "http://localhost:3000"}
+c := &gotenberg.Client{Hostname: "http://localhost:3005"}
 index, _ := gotenberg.NewDocumentFromPath("index.html", "/path/to/file")
 markdown, _ := gotenberg.NewDocumentFromPath("file.md", "/path/to/file")
 req := gotenberg.NewMarkdownRequest(index, markdown)
@@ -59,7 +59,7 @@ use TheCodingMachine\Gotenberg\Client;
 use TheCodingMachine\Gotenberg\DocumentFactory;
 use TheCodingMachine\Gotenberg\MarkdownRequest;
 
-$client = new Client('http://localhost:3000', new \Http\Adapter\Guzzle6\Client());
+$client = new Client('http://localhost:3005', new \Http\Adapter\Guzzle6\Client());
 $index = DocumentFactory::makeFromPath('index.html', '/path/to/file');
 $markdowns = [
     DocumentFactory::makeFromPath('file.md', '/path/to/file'),

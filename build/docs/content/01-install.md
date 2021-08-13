@@ -9,10 +9,10 @@ Gotenberg is shipped within a Docker image.
 You may start it with:
 
 ```bash
-$ docker run --rm -p 3000:3000 thecodingmachine/gotenberg:6
+$ docker run --rm -p 3005:3005 thecodingmachine/gotenberg:6
 ```
 
-> The API will be available at [http://localhost:3000](http://localhost:3000).
+> The API will be available at [http://localhost:3005](http://localhost:3005).
 
 The image uses a dedicated non-root user called `gotenberg` with uid and gid `1001`.
 
@@ -46,7 +46,7 @@ services:
     image: thecodingmachine/gotenberg:6
 ```
 
-> The API will be available under `gotenberg:3000` in your Docker Compose network.
+> The API will be available under `gotenberg:3005` in your Docker Compose network.
 
 ## Kubernetes
 
@@ -70,4 +70,4 @@ If you're looking for cost savings, you might be interested by [Cloud Run](https
 However, according to some users, doing asynchronous conversion (with a webhook) might not working.
 
 In the following examples, we will assume your
-Gotenberg API is available at [http://localhost:3000](http://localhost:3000).
+Gotenberg API is available at [http://localhost:3005](http://localhost:3005).

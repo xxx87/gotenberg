@@ -17,7 +17,7 @@ It accepts one of the following severities: `"DEBUG"`, `"INFO"` (default) and `"
 
 ## Default listen port
 
-By default, the API will listen on port `3000`.
+By default, the API will listen on port `3005`.
 
 You may customize this value with the environment variable `DEFAULT_LISTEN_PORT`.
 
@@ -60,7 +60,7 @@ The hard limit is 100 MB and is defined by Google Chrome itself.
 
 ## Google Chrome ignore certificate errors
 
-When performing a [URL](#url) conversion, Google Chrome will not accept certificate errors. 
+When performing a [URL](#url) conversion, Google Chrome will not accept certificate errors.
 
 You may allow insecure connections by setting the `GOOGLE_CHROME_IGNORE_CERTIFICATE_ERRORS` environment variable to `"1"`.
 

@@ -38,7 +38,7 @@ RUN curl https://dl.google.com/linux/linux_signing_key.pub | apt-key add - &&\
 # |
 
 # https://github.com/nextcloud/docker/issues/380
-RUN mkdir -p /usr/share/man/man1mkdir -p /usr/share/man/man1 &&\ 
+RUN mkdir -p /usr/share/man/man1mkdir -p /usr/share/man/man1 &&\
     echo "deb https://httpredir.debian.org/debian/ buster-backports main contrib non-free" >> /etc/apt/sources.list &&\
     apt-get update &&\
     apt-get --no-install-recommends -t buster-backports -y install libreoffice &&\
@@ -79,7 +79,7 @@ RUN curl -o /usr/bin/pdftk "https://gitlab.com/pdftk-java/pdftk/-/jobs/${PDFTK_V
 # | Note: ttf-mscorefonts-installer are installed on top of this Dockerfile.
 # |
 
-# Credits: 
+# Credits:
 # https://github.com/arachnys/athenapdf/blob/master/cli/Dockerfile
 # https://help.accusoft.com/PrizmDoc/v12.1/HTML/Installing_Asian_Fonts_on_Ubuntu_and_Debian.html
 RUN apt-get update &&\
@@ -121,11 +121,15 @@ RUN apt-get update &&\
 COPY build/base/fonts/* /usr/local/share/fonts/
 COPY build/base/fonts.conf /etc/fonts/conf.d/100-gotenberg.conf
 
+RUN apt-get update && apt-get install -y fontforge
+RUN apt-get install -y cabextract
+RUN wget https://gist.github.com/maxwelleite/10774746/raw/ttf-vista-fonts-installer.sh -q -O - | bash
+
 # |--------------------------------------------------------------------------
 # | Default user
 # |--------------------------------------------------------------------------
 # |
-# | All processes in the Docker container will run as a dedicated 
+# | All processes in the Docker container will run as a dedicated
 # | non-root user.
 # |
 

@@ -1,8 +1,8 @@
 GOLANG_VERSION=1.14
-VERSION=snapshot
-DOCKER_USER=
-DOCKER_PASSWORD=
-DOCKER_REGISTRY=thecodingmachine
+VERSION=6.2.1
+DOCKER_USER=${DOCKER_USER}
+DOCKER_PASSWORD=${DOCKER_PASSWORD}
+DOCKER_REGISTRY=xxx87
 GOTENBERG_USER_GID=1001
 GOTENBERG_USER_UID=1001
 GOLANGCI_LINT_VERSION=1.27.0
@@ -13,7 +13,7 @@ MAXIMUM_WAIT_DELAY=10.0
 MAXIMUM_WEBHOOK_URL_TIMEOUT=30.0
 DEFAULT_WAIT_TIMEOUT=10.0
 DEFAULT_WEBHOOK_URL_TIMEOUT=10.0
-DEFAULT_LISTEN_PORT=3000
+DEFAULT_LISTEN_PORT=3005
 DISABLE_GOOGLE_CHROME=0
 DISABLE_UNOCONV=0
 LOG_LEVEL=INFO
@@ -28,7 +28,7 @@ base:
 # build the workspace Docker image.
 workspace:
 	make base
-	docker build --build-arg GOLANG_VERSION=$(GOLANG_VERSION) -t $(DOCKER_REGISTRY)/gotenberg:workspace -f build/workspace/Dockerfile . 
+	docker build --build-arg GOLANG_VERSION=$(GOLANG_VERSION) -t $(DOCKER_REGISTRY)/gotenberg:workspace -f build/workspace/Dockerfile .
 
 # gofmt and goimports all go files.
 fmt:
@@ -48,7 +48,7 @@ tests:
 # generate documentation.
 doc:
 	make workspace
-	docker build -t $(DOCKER_REGISTRY)/gotenberg:docs -f build/docs/Dockerfile . 
+	docker build -t $(DOCKER_REGISTRY)/gotenberg:docs -f build/docs/Dockerfile .
 	docker run --rm -it -v "$(PWD):/gotenberg/docs" $(DOCKER_REGISTRY)/gotenberg:docs
 
 # build Gotenberg Docker image.

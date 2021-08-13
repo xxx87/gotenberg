@@ -30,7 +30,7 @@ For instance:
 
 ```bash
 $ curl --request POST \
-    --url http://localhost:3000/convert/html \
+    --url http://localhost:3005/convert/html \
     --header 'Content-Type: multipart/form-data' \
     --form files=@index.html \
     -o result.pdf
@@ -41,7 +41,7 @@ $ curl --request POST \
 ```golang
 import "github.com/thecodingmachine/gotenberg-go-client/v7"
 
-c := &gotenberg.Client{Hostname: "http://localhost:3000"}
+c := &gotenberg.Client{Hostname: "http://localhost:3005"}
 index, _ := gotenberg.NewDocumentFromPath("index.html", "/path/to/file")
 req := gotenberg.NewHTMLRequest(index)
 dest := "result.pdf"
@@ -55,7 +55,7 @@ use TheCodingMachine\Gotenberg\Client;
 use TheCodingMachine\Gotenberg\DocumentFactory;
 use TheCodingMachine\Gotenberg\HTMLRequest;
 
-$client = new Client('http://localhost:3000', new \Http\Adapter\Guzzle6\Client());
+$client = new Client('http://localhost:3005', new \Http\Adapter\Guzzle6\Client());
 $index = DocumentFactory::makeFromPath('index.html', '/path/to/file');
 $request = new HTMLRequest($index);
 $dest = 'result.pdf';
@@ -108,7 +108,7 @@ There are some limitations:
 
 ```bash
 $ curl --request POST \
-    --url http://localhost:3000/convert/html \
+    --url http://localhost:3005/convert/html \
     --header 'Content-Type: multipart/form-data' \
     --form files=@index.html \
     --form files=@header.html \
@@ -121,7 +121,7 @@ $ curl --request POST \
 ```golang
 import "github.com/thecodingmachine/gotenberg-go-client/v7"
 
-c := &gotenberg.Client{Hostname: "http://localhost:3000"}
+c := &gotenberg.Client{Hostname: "http://localhost:3005"}
 index, _ := gotenberg.NewDocumentFromPath("index.html", "/path/to/file")
 header, _ := gotenberg.NewDocumentFromPath("header.html", "/path/to/file")
 footer, _ := gotenberg.NewDocumentFromPath("footer.html", "/path/to/file")
@@ -139,7 +139,7 @@ use TheCodingMachine\Gotenberg\Client;
 use TheCodingMachine\Gotenberg\DocumentFactory;
 use TheCodingMachine\Gotenberg\HTMLRequest;
 
-$client = new Client('http://localhost:3000', new \Http\Adapter\Guzzle6\Client());
+$client = new Client('http://localhost:3005', new \Http\Adapter\Guzzle6\Client());
 $index = DocumentFactory::makeFromPath('index.html', '/path/to/file');
 $header = DocumentFactory::makeFromPath('header.html', '/path/to/file');
 $footer = DocumentFactory::makeFromPath('footer.html', '/path/to/file');
@@ -198,7 +198,7 @@ You may also use *remote* paths for Google fonts, images and so on.
 
 ```bash
 $ curl --request POST \
-    --url http://localhost:3000/convert/html \
+    --url http://localhost:3005/convert/html \
     --header 'Content-Type: multipart/form-data' \
     --form files=@index.html \
     --form files=@style.css \
@@ -212,7 +212,7 @@ $ curl --request POST \
 ```golang
 import "github.com/thecodingmachine/gotenberg-go-client/v7"
 
-c := &gotenberg.Client{Hostname: "http://localhost:3000"}
+c := &gotenberg.Client{Hostname: "http://localhost:3005"}
 index, _ := gotenberg.NewDocumentFromPath("index.html", "/path/to/file")
 style, _ := gotenberg.NewDocumentFromPath("style.css", "/path/to/file")
 img, _ := gotenberg.NewDocumentFromPath("img.png", "/path/to/file")
@@ -230,7 +230,7 @@ use TheCodingMachine\Gotenberg\Client;
 use TheCodingMachine\Gotenberg\DocumentFactory;
 use TheCodingMachine\Gotenberg\HTMLRequest;
 
-$client = new Client('http://localhost:3000', new \Http\Adapter\Guzzle6\Client());
+$client = new Client('http://localhost:3005', new \Http\Adapter\Guzzle6\Client());
 $index = DocumentFactory::makeFromPath('index.html', '/path/to/file');
 $assets = [
     DocumentFactory::makeFromPath('style.css', '/path/to/file'),
@@ -255,7 +255,7 @@ By default, it will be rendered with `A4` size, `1 inch` margins and `portrait` 
 
 ```bash
 $ curl --request POST \
-    --url http://localhost:3000/convert/html \
+    --url http://localhost:3005/convert/html \
     --header 'Content-Type: multipart/form-data' \
     --form files=@index.html \
     --form paperWidth=8.27 \
@@ -274,7 +274,7 @@ $ curl --request POST \
 ```golang
 import "github.com/thecodingmachine/gotenberg-go-client/v7"
 
-c := &gotenberg.Client{Hostname: "http://localhost:3000"}
+c := &gotenberg.Client{Hostname: "http://localhost:3005"}
 index, _ := gotenberg.NewDocumentFromPath("index.html", "/path/to/file")
 req := gotenberg.NewHTMLRequest(index)
 req.PaperSize(gotenberg.A4)
@@ -293,7 +293,7 @@ use TheCodingMachine\Gotenberg\DocumentFactory;
 use TheCodingMachine\Gotenberg\HTMLRequest;
 use TheCodingMachine\Gotenberg\Request;
 
-$client = new Client('http://localhost:3000', new \Http\Adapter\Guzzle6\Client());
+$client = new Client('http://localhost:3005', new \Http\Adapter\Guzzle6\Client());
 $index = DocumentFactory::makeFromPath('index.html', '/path/to/file');
 $request = new HTMLRequest($index);
 $request->setPaperSize(Request::A4);
@@ -315,7 +315,7 @@ of Google Chrome, e.g. `1-5,8,11-13`.
 
 ```bash
 $ curl --request POST \
-    --url http://localhost:3000/convert/html \
+    --url http://localhost:3005/convert/html \
     --header 'Content-Type: multipart/form-data' \
     --form files=@index.html \
     --form pageRanges='1-3,5' \
@@ -327,7 +327,7 @@ $ curl --request POST \
 ```golang
 import "github.com/thecodingmachine/gotenberg-go-client/v7"
 
-c := &gotenberg.Client{Hostname: "http://localhost:3000"}
+c := &gotenberg.Client{Hostname: "http://localhost:3005"}
 index, _ := gotenberg.NewDocumentFromPath("index.html", "/path/to/file")
 req := gotenberg.NewHTMLRequest(index)
 req.PageRanges("1-3,5")
@@ -343,7 +343,7 @@ use TheCodingMachine\Gotenberg\DocumentFactory;
 use TheCodingMachine\Gotenberg\HTMLRequest;
 use TheCodingMachine\Gotenberg\Request;
 
-$client = new Client('http://localhost:3000', new \Http\Adapter\Guzzle6\Client());
+$client = new Client('http://localhost:3005', new \Http\Adapter\Guzzle6\Client());
 $index = DocumentFactory::makeFromPath('index.html', '/path/to/file');
 $request = new HTMLRequest($index);
 $request->setPageRanges('1-3,5');
@@ -363,7 +363,7 @@ a lot on JavaScript for rendering.
 
 ```bash
 $ curl --request POST \
-    --url http://localhost:3000/convert/html \
+    --url http://localhost:3005/convert/html \
     --header 'Content-Type: multipart/form-data' \
     --form files=@index.html \
     --form waitDelay=5.5 \
@@ -375,7 +375,7 @@ $ curl --request POST \
 ```golang
 import "github.com/thecodingmachine/gotenberg-go-client/v7"
 
-c := &gotenberg.Client{Hostname: "http://localhost:3000"}
+c := &gotenberg.Client{Hostname: "http://localhost:3005"}
 index, _ := gotenberg.NewDocumentFromPath("index.html", "/path/to/file")
 req := gotenberg.NewHTMLRequest(index)
 req.WaitDelay(5.5)
@@ -391,7 +391,7 @@ use TheCodingMachine\Gotenberg\DocumentFactory;
 use TheCodingMachine\Gotenberg\HTMLRequest;
 use TheCodingMachine\Gotenberg\Request;
 
-$client = new Client('http://localhost:3000', new \Http\Adapter\Guzzle6\Client());
+$client = new Client('http://localhost:3005', new \Http\Adapter\Guzzle6\Client());
 $index = DocumentFactory::makeFromPath('index.html', '/path/to/file');
 $request = new HTMLRequest($index);
 $request->setWaitDelay(5.5);
@@ -414,7 +414,7 @@ The hard limit is 100 MB and is defined by Google Chrome itself.
 
 ```bash
 $ curl --request POST \
-    --url http://localhost:3000/convert/html \
+    --url http://localhost:3005/convert/html \
     --header 'Content-Type: multipart/form-data' \
     --form files=@index.html \
     --form googleChromeRpccBufferSize=1048576 \
@@ -426,7 +426,7 @@ $ curl --request POST \
 ```golang
 import "github.com/thecodingmachine/gotenberg-go-client/v7"
 
-c := &gotenberg.Client{Hostname: "http://localhost:3000"}
+c := &gotenberg.Client{Hostname: "http://localhost:3005"}
 index, _ := gotenberg.NewDocumentFromPath("index.html", "/path/to/file")
 req := gotenberg.NewHTMLRequest(index)
 req.GoogleChromeRpccBufferSize(1048576)
@@ -442,7 +442,7 @@ use TheCodingMachine\Gotenberg\DocumentFactory;
 use TheCodingMachine\Gotenberg\HTMLRequest;
 use TheCodingMachine\Gotenberg\Request;
 
-$client = new Client('http://localhost:3000', new \Http\Adapter\Guzzle6\Client());
+$client = new Client('http://localhost:3005', new \Http\Adapter\Guzzle6\Client());
 $index = DocumentFactory::makeFromPath('index.html', '/path/to/file');
 $request = new HTMLRequest($index);
 $request->setGoogleChromeRpccBufferSize(1048576);

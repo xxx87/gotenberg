@@ -72,7 +72,7 @@ func DefaultConfig() Config {
 		maximumWebhookURLTimeout:            30.0,
 		defaultWaitTimeout:                  10.0,
 		defaultWebhookURLTimeout:            10.0,
-		defaultListenPort:                   3000,
+		defaultListenPort:                   3005,
 		disableGoogleChrome:                 false,
 		disableUnoconv:                      false,
 		logLevel:                            xlog.InfoLevel,

@@ -17,7 +17,7 @@ will merge them and return the resulting PDF file.
 
 ```bash
 $ curl --request POST \
-    --url http://localhost:3000/merge \
+    --url http://localhost:3005/merge \
     --header 'Content-Type: multipart/form-data' \
     --form files=@file.pdf \
     --form files=@file2.pdf \
@@ -29,7 +29,7 @@ $ curl --request POST \
 ```golang
 import "github.com/thecodingmachine/gotenberg-go-client/v7"
 
-c := &gotenberg.Client{Hostname: "http://localhost:3000"}
+c := &gotenberg.Client{Hostname: "http://localhost:3005"}
 pdf, _ := gotenberg.NewDocumentFromPath("file.pdf", "/path/to/file")
 pdf2, _ := gotenberg.NewDocumentFromPath("file2.pdf", "/path/to/file")
 req := gotenberg.NewMergeRequest(pdf, pdf2)
@@ -44,7 +44,7 @@ use TheCodingMachine\Gotenberg\Client;
 use TheCodingMachine\Gotenberg\DocumentFactory;
 use TheCodingMachine\Gotenberg\MergeRequest;
 
-$client = new Client('http://localhost:3000', new \Http\Adapter\Guzzle6\Client());
+$client = new Client('http://localhost:3005', new \Http\Adapter\Guzzle6\Client());
 $files = [
     DocumentFactory::makeFromPath('file.pdf', '/path/to/file'),
     DocumentFactory::makeFromPath('file2.pdf', '/path/to/file'),

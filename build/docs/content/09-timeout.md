@@ -17,7 +17,7 @@ It takes a float as value (e.g `2.5` for 2.5 seconds).
 
 ```bash
 $ curl --request POST \
-    --url http://localhost:3000/convert/html \
+    --url http://localhost:3005/convert/html \
     --header 'Content-Type: multipart/form-data' \
     --form files=@index.html \
     --form waitTimeout=2.5
@@ -28,7 +28,7 @@ $ curl --request POST \
 ```golang
 import "github.com/thecodingmachine/gotenberg-go-client/v7"
 
-c := &gotenberg.Client{Hostname: "http://localhost:3000"}
+c := &gotenberg.Client{Hostname: "http://localhost:3005"}
 index, _ := gotenberg.NewDocumentFromPath("index.html", "/path/to/file")
 req := gotenberg.NewHTMLRequest(index)
 req.WaitTimeout(2.5)
@@ -43,7 +43,7 @@ use TheCodingMachine\Gotenberg\DocumentFactory;
 use TheCodingMachine\Gotenberg\HTMLRequest;
 use TheCodingMachine\Gotenberg\Request;
 
-$client = new Client('http://localhost:3000', new \Http\Adapter\Guzzle6\Client());
+$client = new Client('http://localhost:3005', new \Http\Adapter\Guzzle6\Client());
 $index = DocumentFactory::makeFromPath('index.html', '/path/to/file');
 $request = new HTMLRequest($index);
 $request->setWaitTimeout(2.5);

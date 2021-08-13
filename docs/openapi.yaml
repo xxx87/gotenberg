@@ -11,7 +11,7 @@ info:
     A Docker-powered stateless API for converting HTML, Markdown and Office
     documents to PDF.
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'http://localhost:3005'
     description: Local server with the default Docker image and port
 paths:
   /convert/html:

@@ -21,7 +21,7 @@ named `remoteURL` instead. Otherwise, URL conversions work the same as HTML conv
 
 ```bash
 $ curl --request POST \
-    --url http://localhost:3000/convert/url \
+    --url http://localhost:3005/convert/url \
     --header 'Content-Type: multipart/form-data' \
     --form remoteURL=https://google.com \
     --form marginTop=0 \
@@ -36,7 +36,7 @@ $ curl --request POST \
 ```golang
 import "github.com/thecodingmachine/gotenberg-go-client/v7"
 
-c := &gotenberg.Client{Hostname: "http://localhost:3000"}
+c := &gotenberg.Client{Hostname: "http://localhost:3005"}
 req := gotenberg.NewURLRequest("https://google.com")
 req.Margins(gotenberg.NoMargins)
 dest := "result.pdf"
@@ -49,7 +49,7 @@ c.Store(req, dest)
 use TheCodingMachine\Gotenberg\Client;
 use TheCodingMachine\Gotenberg\URLRequest;
 
-$client = new Client('http://localhost:3000', new \Http\Adapter\Guzzle6\Client());
+$client = new Client('http://localhost:3005', new \Http\Adapter\Guzzle6\Client());
 $request = new URLRequest('https://google.com');
 $request->setMargins(Request::NO_MARGINS);
 $dest = 'result.pdf';
@@ -73,7 +73,7 @@ the API will send a request to the `remoteURL` with the HTTP header `Your-Header
 
 ```bash
 $ curl --request POST \
-    --url http://localhost:3000/convert/url \
+    --url http://localhost:3005/convert/url \
     --header 'Content-Type: multipart/form-data' \
     --header 'Gotenberg-Remoteurl-Your-Header: Foo' \
     --form remoteURL=https://google.com \
@@ -85,7 +85,7 @@ $ curl --request POST \
 ```golang
 import "github.com/thecodingmachine/gotenberg-go-client/v7"
 
-c := &gotenberg.Client{Hostname: "http://localhost:3000"}
+c := &gotenberg.Client{Hostname: "http://localhost:3005"}
 req := gotenberg.NewURLRequest("https://google.com")
 req.AddRemoteURLHTTPHeader("Your-Header", "Foo")
 dest := "result.pdf"
@@ -98,7 +98,7 @@ c.Store(req, dest)
 use TheCodingMachine\Gotenberg\Client;
 use TheCodingMachine\Gotenberg\URLRequest;
 
-$client = new Client('http://localhost:3000', new \Http\Adapter\Guzzle6\Client());
+$client = new Client('http://localhost:3005', new \Http\Adapter\Guzzle6\Client());
 $request = new URLRequest('https://google.com');
 $request->addRemoteURLHTTPHeader('Your-Header', 'Foo')
 $dest = 'result.pdf';

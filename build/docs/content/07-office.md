@@ -31,7 +31,7 @@ All files will be merged into a single resulting PDF.
 
 ```bash
 $ curl --request POST \
-    --url http://localhost:3000/convert/office \
+    --url http://localhost:3005/convert/office \
     --header 'Content-Type: multipart/form-data' \
     --form files=@document.docx \
     --form files=@document2.docx \
@@ -43,7 +43,7 @@ $ curl --request POST \
 ```golang
 import "github.com/thecodingmachine/gotenberg-go-client/v7"
 
-c := &gotenberg.Client{Hostname: "http://localhost:3000"}
+c := &gotenberg.Client{Hostname: "http://localhost:3005"}
 doc, _ := gotenberg.NewDocumentFromPath("document.docx", "/path/to/file")
 doc2, _ := gotenberg.NewDocumentFromPath("document2.docx", "/path/to/file")
 req := gotenberg.NewOfficeRequest(doc, doc2)
@@ -58,7 +58,7 @@ use TheCodingMachine\Gotenberg\Client;
 use TheCodingMachine\Gotenberg\DocumentFactory;
 use TheCodingMachine\Gotenberg\OfficeRequest;
 
-$client = new Client('http://localhost:3000', new \Http\Adapter\Guzzle6\Client());
+$client = new Client('http://localhost:3005', new \Http\Adapter\Guzzle6\Client());
 $files = [
     DocumentFactory::makeFromPath('document.docx', '/path/to/file'),
     DocumentFactory::makeFromPath('document2.docx', '/path/to/file'),
@@ -78,7 +78,7 @@ By default, it will be rendered with `portrait` orientation.
 
 ```bash
 $ curl --request POST \
-    --url http://localhost:3000/convert/office \
+    --url http://localhost:3005/convert/office \
     --header 'Content-Type: multipart/form-data' \
     --form files=@document.docx \
     --form landscape=true \
@@ -90,7 +90,7 @@ $ curl --request POST \
 ```golang
 import "github.com/thecodingmachine/gotenberg-go-client/v7"
 
-c := &gotenberg.Client{Hostname: "http://localhost:3000"}
+c := &gotenberg.Client{Hostname: "http://localhost:3005"}
 doc, _ := gotenberg.NewDocumentFromPath("document.docx", "/path/to/file")
 req := gotenberg.NewOfficeRequest(doc)
 req.Landscape(true)
@@ -105,7 +105,7 @@ use TheCodingMachine\Gotenberg\Client;
 use TheCodingMachine\Gotenberg\DocumentFactory;
 use TheCodingMachine\Gotenberg\OfficeRequest;
 
-$client = new Client('http://localhost:3000', new \Http\Adapter\Guzzle6\Client());
+$client = new Client('http://localhost:3005', new \Http\Adapter\Guzzle6\Client());
 $files = [
     DocumentFactory::makeFromPath('document.docx', '/path/to/file'),
 ];
@@ -129,7 +129,7 @@ of LibreOffice, e.g. `1-1` or `1-4`.
 
 ```bash
 $ curl --request POST \
-    --url http://localhost:3000/convert/office \
+    --url http://localhost:3005/convert/office \
     --header 'Content-Type: multipart/form-data' \
     --form files=@document.docx \
     --form pageRanges='1-3' \
@@ -141,7 +141,7 @@ $ curl --request POST \
 ```golang
 import "github.com/thecodingmachine/gotenberg-go-client/v7"
 
-c := &gotenberg.Client{Hostname: "http://localhost:3000"}
+c := &gotenberg.Client{Hostname: "http://localhost:3005"}
 doc, _ := gotenberg.NewDocumentFromPath("document.docx", "/path/to/file")
 req := gotenberg.NewOfficeRequest(doc)
 req.PageRanges("1-3")
@@ -156,7 +156,7 @@ use TheCodingMachine\Gotenberg\Client;
 use TheCodingMachine\Gotenberg\DocumentFactory;
 use TheCodingMachine\Gotenberg\OfficeRequest;
 
-$client = new Client('http://localhost:3000', new \Http\Adapter\Guzzle6\Client());
+$client = new Client('http://localhost:3005', new \Http\Adapter\Guzzle6\Client());
 $files = [
     DocumentFactory::makeFromPath('document.docx', '/path/to/file'),
 ];
